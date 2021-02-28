@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="9ib-LB-hux">
             <objects>
-                <tableViewController id="rsi-CW-h0P" sceneMemberID="viewController">
+                <tableViewController id="rsi-CW-h0P" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9a6-pf-F8S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="rsi-CW-h0P" id="wzJ-jc-bIq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="nz7-7E-ybm"/>
+                    <navigationItem key="navigationItem" title="Home" id="nz7-7E-ybm">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="d3e-xW-5o5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onLogout:" destination="rsi-CW-h0P" id="9i0-AE-wrE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTZ-R7-TYl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,6 +68,10 @@
                                     <action selector="onLoginButton:" destination="vHU-GA-1nI" eventType="touchUpInside" id="BHS-4I-GUq"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fSb-aE-SJb">
+                                <rect key="frame" x="108" y="179" width="208" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ltO-dr-NDG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,9 +92,14 @@
         <scene sceneID="GNN-rK-29p">
             <objects>
                 <navigationController id="YTA-sd-vHz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="k4v-5s-WGa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y0c-1l-OKo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14505758169999999" green="0.6789264049" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="rsi-CW-h0P" kind="relationship" relationship="rootViewController" id="y9n-tx-T8b"/>
@@ -95,6 +111,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TwitterLogo" width="120" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
