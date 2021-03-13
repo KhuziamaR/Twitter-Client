@@ -17,7 +17,7 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 140
+        self.tableView.estimatedRowHeight = 120
         super.viewDidLoad()
         loadTweets()
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
@@ -85,6 +85,8 @@ class HomeTableViewController: UITableViewController {
         }
         cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
         cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
+        
         return cell
     }
     
